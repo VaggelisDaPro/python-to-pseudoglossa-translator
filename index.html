@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python to Glossa Translator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://cdn.boxicons.com/3.0.6/fonts/basic/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="header-content">
+      <h1>Code Translator</h1>
+      <p>Convert Python code to Glossa or Pseudoglossa.</p>
+    </div>
+    <button tabindex="-1" class="language-toggle" id="uiLanguageBtn">
+      <i class='bx  bx-translate'></i> 
+      EN
+    </button>
+  </div>
+  
+  <div class="translator-layout">
+    <div class="code-panel">
+      <div class="panel-header">
+        <span class="panel-label" id="input-label">Python Input</span>
+      </div>
+      <div class="code-content">
+        <div class="textarea-wrapper">
+          <textarea placeholder="# Enter your Python code here..." id="input" spellcheck="false"></textarea>
+          <script>
+            const inputTextarea = document.getElementById('input');
+            inputTextarea.addEventListener('keydown', function(e) {
+              if (e.key === 'Tab') {
+                e.preventDefault();
+                const start = this.selectionStart;
+                const end = this.selectionEnd;
+
+                this.value = this.value.substring(0, start) + '\t' + this.value.substring(end);
+
+                this.selectionStart = this.selectionEnd = start + 1;
+              }
+            });
+          </script>
+          <div class="error-console overlay" id="pythonErrorConsole"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="middle-section">
+      <div class="divider"></div>
+      <button tabindex="-1" class="convert-btn"><i class='bx  bx-repeat'></i></button>
+      <div class="divider"></div>
+    </div>
+    
+    <div class="code-panel">
+      <div class="panel-header">
+        <span class="panel-label" id="output-label">Output</span>
+        <div class="output-mode-selector">
+          <button tabindex="-1" class="output-mode-btn active" data-mode="glossa">Γλώσσα</button>
+          <button tabindex="-1" class="output-mode-btn" data-mode="pseudoglossa">Ψευδογλώσσα</button>
+        </div>
+      </div>
+      <div class="code-content">
+        <div class="output-wrapper">
+          <div class="output-area"></div>
+          <div class="error-console overlay" id="translationErrorConsole"></div>
+          <button tabindex="-1" class="copy-btn" id="copy-btn">
+            <i class='bx bx-copy'></i> 
+            Copy
+          </button>
+          <button tabindex="-1" class="copy-btn" id="save-btn" style="margin-top: 40px;">
+            <i class='bx  bx-save'></i>  
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p>Made with <i class="bxf bx-heart" style="transform: translateY(2px);"></i> by <a href="https://github.com/VaggelisDaPro" target="_blank" style="text-decoration: underline; color: #e6edf3;">VDP</a></p>
+  </footer>
+</div>
+<script type="module" src="main.js"></script>
+</body>
+</html>
