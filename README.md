@@ -6,7 +6,7 @@ This project is a tool that allows for the quick conversion of Python code to Γ
 
 ## Features
 - Translation of Python to both languages. (+adaptation)
-- No download needed. Can be used in your [web](https://vaggelisdapro.github.io/).
+- No download needed. Can be used in your [web](https://vaggelisdapro.github.io/python-to-pseudoglossa-translator).
 - Custom algorithm name from a simple variable `ALG_NAME`.
 - Automatic type identification for Γλωσσα.
 - F-String support for `print()` statements.
